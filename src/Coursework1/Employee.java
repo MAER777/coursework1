@@ -7,7 +7,7 @@ public class Employee {
 
     private double salary;
     private static int duration;
-    private int id;
+    private final int id;
 
 
     public Employee (String nameEmployee, int department, double salary) {
