@@ -38,26 +38,24 @@ public class Main {
         System.out.println("Общие затраты на зарплату в месяц: " + allSalary(employee));
         System.out.println();
 //        Найти сотрудника с наименьшей зп
-        System.out.println("Черт: " + searchMinSalary(employee));
+        System.out.println("Заработал мизер: " + searchMinSalary(employee));
         System.out.println();
 //        Найти сотрудника с наивысшей зп
-        System.out.println("Умка: " + searchMaxSalary(employee));
+        System.out.println("Умка заработал больше всех: " + searchMaxSalary(employee));
         System.out.println();
 
     }
 
-    public static String allPrintListEmployee (Employee[] employee) {
-        String allList = null;
-        for (int i = 0; i < employee.length; i++) {
-            allList = employee[i].toString();
-            System.out.println(employee[i].toString());
+    public static void allPrintListEmployee (Employee[] employee) {
+        for (Employee value : employee) {
+            value.toString();
+            System.out.println(value);
         }
-        return allList;
     }
-    public static double allSalary (Employee employee[]) {
+    public static double allSalary (Employee[] employee) {
         double allSum = 0;
-        for (int i = 0; i < employee.length; i++) {
-            allSum = allSum + employee[i].getSalary();
+        for (Employee value : employee) {
+            allSum = allSum + value.getSalary();
 //            System.out.println(sum); Распечатает каждое сложение сумм.
         }
         return allSum;
@@ -66,10 +64,10 @@ public class Main {
     public static String searchMinSalary (Employee[] employee) {
         String minSalaryEmployee = employee[0].toString();
         double minSalary = employee[0].getSalary();
-        for (int i = 0; i < employee.length; i++) {
-            if (employee[i].getSalary() < minSalary) {
-                minSalary = employee[i].getSalary();
-                minSalaryEmployee = employee[i].toString();
+        for (Employee value : employee) {
+            if (value.getSalary() < minSalary) {
+                minSalary = value.getSalary();
+                minSalaryEmployee = value.toString();
             }
         }
         return minSalaryEmployee;
@@ -78,10 +76,10 @@ public class Main {
     public static String searchMaxSalary (Employee[] employee) {
         String maxSalaryEmployee = employee[0].toString();
         double maxSalary = employee[0].getSalary();
-        for (int i = 0; i < employee.length; i++) {
-            if (employee[i].getSalary() > maxSalary) {
-                maxSalary = employee[i].getSalary();
-                maxSalaryEmployee = employee[i].toString();
+        for (Employee value : employee) {
+            if (value.getSalary() > maxSalary) {
+                maxSalary = value.getSalary();
+                maxSalaryEmployee = value.toString();
             }
         }
         return maxSalaryEmployee;
