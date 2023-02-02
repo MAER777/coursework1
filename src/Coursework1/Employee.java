@@ -32,6 +32,18 @@ public class Employee {
     public int getIdEmployee() {
         return id;
     }
+
+    public void setNameEmployee(String nameEmployee) {
+        this.nameEmployee = nameEmployee;
+    }
+
+    public void setDepartment(int department) {
+        this.department = department;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
     public String toString() {
         return id + ". " + this.nameEmployee + ". Отдел: " + this.department + ".  Зарплата: " + this.salary;
     }

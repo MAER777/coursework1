@@ -15,11 +15,12 @@ public class Main {
         employee [6] = new Employee( "Черникова К.К", 4, 1111_000);
         employee [7] = new Employee( "Ерохин М.К", 2, 1333_000);
         employee [8] = new Employee( "Обломов Р.К", 5, 12_000);
-        employee [9] = new Employee( "Чекалова С.И", 4, 11_000);
+        employee [9] = new Employee( "Чекалова С.И", 4, 121_000);
 
-        for (int i = 0; i < employee.length; i++) {
-            System.out.println(employee[i].toString());
-        }
+//        Печать всего списка
+        allPrintListEmployee(employee);
+
+//        Проверка гетов
         System.out.println();
         System.out.println("employee[1].getIdEmployee() = " + employee[1].getNameEmployee());
         System.out.println("employee[2].getDepartment() = " + employee[2].getDepartment());
@@ -27,13 +28,32 @@ public class Main {
         System.out.println("employee[4].getIdEmployee() = " + employee[4].getIdEmployee());
         System.out.println();
 
+//        Проверка сетов
+        employee[1].setNameEmployee("Курилова А.С");
+        employee[8].setDepartment(1);
+        employee[0].setSalary(100);
+        System.out.println();
+
 //        Запрос на всю сумму затрат.
         System.out.println("Общие затраты на зарплату в месяц: " + allSalary(employee));
-
+        System.out.println();
 //        Найти сотрудника с наименьшей зп
         System.out.println("Черт: " + searchMinSalary(employee));
+        System.out.println();
+//        Найти сотрудника с наивысшей зп
+        System.out.println("Умка: " + searchMaxSalary(employee));
+        System.out.println();
+
     }
 
+    public static String allPrintListEmployee (Employee[] employee) {
+        String allList = null;
+        for (int i = 0; i < employee.length; i++) {
+            allList = employee[i].toString();
+            System.out.println(employee[i].toString());
+        }
+        return allList;
+    }
     public static double allSalary (Employee employee[]) {
         double allSum = 0;
         for (int i = 0; i < employee.length; i++) {
@@ -53,5 +73,17 @@ public class Main {
             }
         }
         return minSalaryEmployee;
+    }
+
+    public static String searchMaxSalary (Employee[] employee) {
+        String maxSalaryEmployee = employee[0].toString();
+        double maxSalary = employee[0].getSalary();
+        for (int i = 0; i < employee.length; i++) {
+            if (employee[i].getSalary() > maxSalary) {
+                maxSalary = employee[i].getSalary();
+                maxSalaryEmployee = employee[i].toString();
+            }
+        }
+        return maxSalaryEmployee;
     }
 }
