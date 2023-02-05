@@ -174,4 +174,27 @@ public class EmployeeBook {
             }
         return null;
     }
+    public void setName (EmployeeBook employee, String lastName, String setName) {
+        for (int i = 0; i < size; i++) {
+            if (lastName.equals(employees[i].getNameEmployee())) {
+                employees[i].setNameEmployee(setName);
+            }
+        }
+    }
+
+    public void setDepartment (EmployeeBook employee, String emplName , int setDep) {
+        for (int i = 0; i < size; i++) {
+            if (emplName.equals(employees[i].getNameEmployee())) {
+                employees[i].setDepartment(setDep);
+            }
+        }
+    }
+
+    public void setSalary (EmployeeBook employee, String emplName , double setSalary) {
+        for (int i = 0; i < size; i++) {
+            if (emplName.equals(employees[i].getNameEmployee())) {
+                employees[i].setSalary(setSalary);
+            }
+        }
+    }
 }

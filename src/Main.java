@@ -28,6 +28,7 @@ public class Main {
         employee.addEmployee(alex8);
         employee.addEmployee(alex9);
         employee.addEmployee(alex10);
+        alex3.toString();
 //        Печать всего списка
         employee.printAllEmployee();
         System.out.println();
@@ -91,5 +92,21 @@ public class Main {
 //        Печать сотрудников у кого зарплата больше суммы
         employee.printMaxEmployeeSalary(employee,10_000);
         System.out.println();
+//        Проверка сетеров через методы
+        employee.printAllEmployee();
+//        Изменяем имя
+        employee.setName(employee, "Краснов В.И", "Перевалов И.А.");
+        System.out.println();
+        employee.printAllEmployee();
+        System.out.println();
+//        Изменяем отдел
+        employee.setDepartment(employee,"Ерохин М.К", 3);
+        employee.printAllEmployee();
+        System.out.println();
+//        Изменяем зарплату
+        employee.setSalary(employee, "Ерохин М.К", 100_234);
+        employee.printAllEmployee();
+        System.out.println();
+
     }
 }
