@@ -70,13 +70,18 @@ public class Main {
         System.out.println();
         System.out.println("В департаменте №2 затраты на общую зп - " + searchDepartmentMidlSalary(employee, 2));
         System.out.println();
+//        Индексация зарплат по отделам
         indexDepartmentSalary(employee, 1, 10);
+//        Печать всех сотрудников нужного отдела
         allPrintDepartmentFIO(employee, 3);
         System.out.println();
+//        Печать сотрудников у кого зарплата меньше суммы
         less(employee, 10_000);
         System.out.println();
+//        Печать сотрудников у кого зарплата больше суммы
         more(employee, 10_000);
         System.out.println();
+        System.out.println("Третья сложность");
 
     }
 
