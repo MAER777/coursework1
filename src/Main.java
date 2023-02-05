@@ -13,7 +13,7 @@ public class Main {
         employee [4] = new Employee( "Лошника Г.Б", 3, 333_020);
         employee [5] = new Employee( "Матрешкина Х.В", 5, 13_500.2);
         employee [6] = new Employee( "Черникова К.К", 4, 11_000);
-        employee [7] = new Employee( "Ерохин М.К", 2, 133_000);
+        employee [7] = new Employee( "Ерохин М.К", 2, 1_000);
         employee [8] = new Employee( "Обломов Р.К", 5, 13_000);
         employee [9] = new Employee( "Чекалова С.И", 4, 12_000);
 
@@ -54,9 +54,29 @@ public class Main {
 //        Печать всех сотрудников
         printNameEmployee(employee);
         System.out.println();
+        System.out.println("Вторая сложность");
 //        Индексация зарплат
-        indexSalary(employee);
+        indexSalary(employee, 2);
         allPrintListEmployee(employee);
+        System.out.println();
+//        Работа с отделами
+        searchDepartment(employee, 2);
+        System.out.println();
+        System.out.println("В департаменте №2 наименьшую зп получил - " + searchDepartmentMinSalary(employee, 2));
+        System.out.println();
+        System.out.println("В департаменте №2 наибольшую зп получил - " + searchDepartmentMaxSalary(employee, 2));
+        System.out.println();
+        System.out.println("В департаменте №2 затраты на общую зп - " + searchDepartmentSalary(employee,2));
+        System.out.println();
+        System.out.println("В департаменте №2 затраты на общую зп - " + searchDepartmentMidlSalary(employee, 2));
+        System.out.println();
+        indexDepartmentSalary(employee, 1, 10);
+        allPrintDepartmentFIO(employee, 3);
+        System.out.println();
+        less(employee, 10_000);
+        System.out.println();
+        more(employee, 10_000);
+        System.out.println();
 
     }
 
@@ -122,10 +142,99 @@ public class Main {
         return null;
     }
 
-    public static void indexSalary (Employee[] employees) {
-        int indexPercent = 1;
+    public static void indexSalary (Employee[] employees, int indexPercent) {
         for (int i = 0; i < employees.length; i++) {
             employees[i].setSalary(employees[i].getSalary() + (employees[i].getSalary() / 100 * indexPercent));
+        }
+    }
+
+    public static void searchDepartment (Employee[] employee, int depNumber) {
+        for (int i = 0; i < employee.length; i++) {
+            if (employee[i].getDepartment() == depNumber) {
+                System.out.println(employee[i].toString());
+            }
+        }
+    }
+
+    public static Employee searchDepartmentMinSalary (Employee[] employee, int depNumber) {
+        double salary = 999_999_999;
+        Employee employeeMinSalary = employee[0];
+        for (int i = 0; i < employee.length; i++) {
+            if (employee[i].getDepartment() == depNumber) {
+                if (employee[i].getSalary() < salary) {
+                    salary = employee[i].getSalary();
+                    employeeMinSalary = employee[i];
+                }
+            }
+        }
+        return employeeMinSalary;
+    }
+
+    public static Employee searchDepartmentMaxSalary (Employee[] employee, int depNumber) {
+        double salary = 1;
+        Employee employeeMaxSalary = employee[0];
+        for (int i = 0; i < employee.length; i++) {
+            if (employee[i].getDepartment() == depNumber) {
+                if (employee[i].getSalary() > salary) {
+                    salary = employee[i].getSalary();
+                    employeeMaxSalary = employee[i];
+                }
+            }
+        }
+        return employeeMaxSalary;
+    }
+
+    public static double searchDepartmentSalary (Employee[] employee, int depNumber) {
+        double salary = 0;
+        for (int i = 0; i < employee.length; i++) {
+            if (employee[i].getDepartment() == depNumber) {
+                salary = salary + employee[i].getSalary();
+            }
+        }
+        return salary;
+    }
+
+    public static double searchDepartmentMidlSalary (Employee[] employee, int depNumber) {
+        int employeeDepAll = 0;
+        double salary = 0;
+        for (int i = 0; i < employee.length; i++) {
+            if (employee[i].getDepartment() == depNumber) {
+                salary = salary + employee[i].getSalary();
+                employeeDepAll++;
+            }
+        }
+        salary = salary / employeeDepAll;
+        return salary;
+    }
+
+    public static void indexDepartmentSalary (Employee[] employee, int depNumber, int indexPercent) {
+        for (int i = 0; i < employee.length; i++) {
+            if (employee[i].getDepartment() == depNumber) {
+                employee[i].setSalary(employee[i].getSalary() + (employee[i].getSalary() / 100 * indexPercent));
+            }
+        }
+    }
+    public static void allPrintDepartmentFIO (Employee[] employee, int depNumber) {
+        for (int i = 0; i < employee.length; i++) {
+            if (employee[i].getDepartment() == depNumber) {
+                System.out.println(employee[i].getIdEmployee() + ". " + employee[i].getNameEmployee() + " Зарплата: " + employee[i].getSalary());
+            }
+        }
+    }
+
+    public static void less (Employee[] employees, int sum) {
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].getSalary() < sum) {
+                System.out.println(employees[i].toString());
+            }
+        }
+    }
+
+    public static void more (Employee[] employees, int sum) {
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].getSalary() >= sum) {
+                System.out.println(employees[i].toString());
+            }
         }
     }
 }
