@@ -45,6 +45,6 @@ public class Employee {
         this.salary = salary;
     }
     public String toString() {
-        return id + ". " + this.nameEmployee + ". Отдел: " + this.department + ".  Зарплата: " + this.salary;
+        return id + " " + this.nameEmployee + ". Отдел: " + this.department + ".  Зарплата: " + this.salary;
     }
 }
