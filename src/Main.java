@@ -28,7 +28,6 @@ public class Main {
         employee.addEmployee(alex8);
         employee.addEmployee(alex9);
         employee.addEmployee(alex10);
-        alex3.toString();
 //        Печать всего списка
         employee.printAllEmployee();
         System.out.println();
@@ -107,6 +106,5 @@ public class Main {
         employee.setSalary(employee, "Ерохин М.К", 100_234);
         employee.printAllEmployee();
         System.out.println();
-
     }
 }

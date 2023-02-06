@@ -14,7 +14,7 @@ public class Employee {
         this.nameEmployee = nameEmployee;
         this.department = department;
         this.salary = salary;
-        id = duration++ + 1;
+        id = duration++;
     }
 
     public String getNameEmployee() {

@@ -3,12 +3,9 @@ package Coursework1;
 public class EmployeeBook {
     private final Employee[] employees;
     private int size;
-    private static int duration;
-    private int id;
 
     public EmployeeBook() {
         this.employees = new Employee[11];
-        id = duration++ + 1;
     }
 
     public void addEmployee(Employee employee) {
@@ -28,7 +25,7 @@ public class EmployeeBook {
     public void removeEmployee(Employee employee) {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i].getNameEmployee().equals(employee.getNameEmployee())) {
-                System.out.println("Сотрудник ~~ " + employee.getIdEmployee() + " удален!");
+                System.out.println("Сотрудник ~~ " + employee.getNameEmployee() + " удален!");
                 System.arraycopy(employees, i + 1, employees, i, size - i - 1);
                 employees[size - 1] = null;
                 size--;
