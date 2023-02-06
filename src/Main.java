@@ -6,8 +6,8 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Курсовая Часть 1");
 //        Создадим сотрудников
-        Employee alex1 = new Employee("Краснов В.И", 1, 13_000);
-        Employee alex2 = new Employee("Чиров В.К", 1, 11_000);
+        Employee alex1 = new Employee("Краснов В.И", 1, 14_000);
+        Employee alex2 = new Employee("Чиров В.К", 1, 14_000);
         Employee alex3 = new Employee("Лудин Г.И", 2, 13_000);
         Employee alex4 = new Employee("Марчинина К.А", 3, 121_000);
         Employee alex5 = new Employee("Лошника Г.Б", 3, 333_020);
@@ -105,6 +105,19 @@ public class Main {
 //        Изменяем зарплату
         employee.setSalary(employee, "Ерохин М.К", 100_234);
         employee.printAllEmployee();
+        System.out.println();
+
+        System.out.println("employee.searchMinSalary(employee) = " + employee.searchMinSalary(employee));
+        System.out.println("employee.searchMaxSalary(employee) = " + employee.searchMaxSalary(employee));
+        //        Работа по отделам, найти сотрудников из нужного отдела
+        System.out.println();
+        employee.searchDepartmentEmployee(employee, 3);
+        System.out.println();
+//        Найти сотрудника из нужного отдела с наименьшей зарплатой
+        System.out.println(employee.searchDepartmentEmployeeMin(employee, 3));
+        System.out.println();
+//        Найти сотрудника из нужного отдела с наибольшей зарплатой
+        System.out.println(employee.searchDepartmentEmployeeMax(employee,3));
         System.out.println();
     }
 }

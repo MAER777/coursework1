@@ -47,8 +47,8 @@ public class EmployeeBook {
     }
 
     public Employee searchMinSalary(EmployeeBook employee) {
-        Employee employeeSalary = null;
-        double min = 999_999_999;
+        Employee employeeSalary = employees[0];
+        double min = employees[0].getSalary();
         for (int i = 0; i < size; i++) {
             if (employees[i].getSalary() < min) {
                 min = employees[i].getSalary();
@@ -59,8 +59,8 @@ public class EmployeeBook {
     }
 
     public Employee searchMaxSalary(EmployeeBook employee) {
-        Employee employeeSalary = null;
-        double min = 1;
+        Employee employeeSalary = employees[0];
+        double min = employees[0].getSalary();
         for (int i = 0; i < size; i++) {
             if (employees[i].getSalary() > min) {
                 min = employees[i].getSalary();
